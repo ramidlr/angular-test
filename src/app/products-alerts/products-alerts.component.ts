@@ -10,6 +10,7 @@ import { Product } from '../products';
 })
 export class ProductsAlertsComponent implements OnInit {
   @Input() product!: Product;
+  @Output() notify = new EventEmitter();
   constructor() {}
 
   ngOnInit() {}
