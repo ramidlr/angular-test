@@ -1,3 +1,5 @@
+import { HttpClientModule } from '@angular/common/http';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -9,14 +11,17 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductsAlertsComponent } from './products-alerts/products-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartService } from './cart.service';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent},
+      { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'cart', component: CartComponent }
     ])
   ],
   declarations: [
@@ -24,15 +29,13 @@ import { CartService } from './cart.service';
     TopBarComponent,
     ProductListComponent,
     ProductsAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent
   ],
-  bootstrap: [
-    AppComponent
-  ],
+  bootstrap: [AppComponent],
   providers: [CartService]
 })
-export class AppModule { }
-
+export class AppModule {}
 
 /*
 Copyright Google LLC. All Rights Reserved.
